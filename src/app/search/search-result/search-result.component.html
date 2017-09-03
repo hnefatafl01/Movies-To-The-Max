@@ -1,0 +1,45 @@
+  <!-- <span *ngIf="searchResponse === 'False'" class="help-block">{{searchError}}</span> -->
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <div class="dropdown div-inline" appDropdown>
+          <button
+            class="btn btn-default dropdown-toggle"
+            type="button"
+            id="orderBy"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true">
+            Find Type
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="orderBy">
+            <!-- <li><a id="type" type="button" (click)="findType('movie', $event)">movie</a></li>
+            <li><a id="genre" type="button" (click)="findType('series', $event)">series</a></li>
+            <li><a id="cast" type="button" (click)="findType('episode', $event)">episode</a></li> -->
+          </ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <!-- <div class="panel panel-defualt" *ngFor="let movie of movies | sort:type | alignMovies:'odd'" (click)="onSelectMovie(movie)">
+            <div class="panel-heading">{{movie.Title}}</div>
+            <div class="panel-body">
+              <h6>Year: {{movie.Year}}</h6>
+              <h6>Type: {{movie.Type}}</h6>
+            </div>
+      </div>
+    </div>
+     <div class="col-md-4">
+      <div class="panel panel-defualt" *ngFor="let movie of movies | sort:type | alignMovies:'even'" (click)="onSelectMovie(movie)">
+         <div class="panel-heading">{{movie.Title}}</div>
+          <div class="panel-body">
+            <h6>Year: {{movie.Year}}</h6>
+            <h6>Type: {{movie.Type}}</h6>
+          </div>
+      </div> -->
+    </div>
+  </div>
+
+

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <br>
+    <form (ngSubmit)="search(f)" #f="ngForm" >
+      <div class="form-group">
+        <input
+          id="search-bar"
+          class="form-control"
+          type="text"
+          placeholder="Search for a movie"
+          [(ngModel)]="movie.name"
+          name="movieName"
+          max="50"
+          required>
+        <span class="glyphicon glyphicon-search"></span>
+      </div>
+        <!-- <div class="div-inline search-button-left">
+          <button
+            class="btn btn-primary form-control"
+            type="submit"
+            [disabled]="!f.valid">Search
+          </button>
+        </div> -->
+      <span *ngIf="f.touched && !f.valid" class="help-block">Please enter valid movie title</span>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <hr>
+    <router-outlet></router-outlet>
+  </div>
+</div>

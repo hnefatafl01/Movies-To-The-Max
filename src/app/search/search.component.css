@@ -1,0 +1,31 @@
+
+.form-control {
+  padding-right: 30px;
+}
+
+.form-control + .glyphicon {
+  position: absolute;
+  right: 0;
+  padding: 30px 27px;
+}
+
+.div-inline {
+  display: inline-block;
+}
+
+.search-button-left {
+  width: 58%;
+  margin: 0;
+}
+
+button.btn.btn-primary.form-control {
+  width: 100%;
+}
+.div-inline.dropdown {
+  width:38%;
+  float: right;
+}
+
+.btn.btn-default.dropdown-toggle {
+  width: 100%;
+}

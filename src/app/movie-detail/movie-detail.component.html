@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong >{{movie.Title }} ({{movie.Year}})</strong>
+          <span style="float:right" >Rating: <span class="badge">{{ movie.imdbRating}} / 10 </span> | {{movie.imdbVotes}} votes</span>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              {{movie.Rated}}  |  {{movie.Genre}}  |  {{movie.Runtime}}  |  {{movie.Released}} ({{movie.Country}})  |  {{movie.Language}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-6">
+               <img class="img-responsive" src="{{movie.Poster}}" alt="{{movie.Title}} poster">
+            </div>
+            <div class="col-xs-6">
+              <h5>Production:</h5>
+              <p>{{movie.Production}}</p>
+              <h5>Director:</h5>
+              <p>{{movie.Director}}</p>
+              <h5>Writer:</h5>
+              <p>{{movie.Writer}}</p>
+              <h5>Starring:</h5>
+              <p>{{movie.Actors}}</p>
+              <h5>Awards:</h5>
+              <p>{{movie.Awards}}</p>
+              <h5>Ratings:</h5>
+              <p *ngFor="let rating of movie.Ratings">{{rating.Source}}: {{rating.Value}}</p>
+              <p *ngIf="metascore !== 'N/A'">{{movie.Metascore}}</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <p>{{movie.Plot}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
