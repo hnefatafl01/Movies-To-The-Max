@@ -36,19 +36,8 @@ export class SearchResultComponent implements OnChanges, OnInit, OnDestroy {
       .subscribe(
         (arr) => {
           this.movies = arr.movies;
-          console.log('result', this.movies);
         }
       );
-
-    // this.route.params.subscribe(() => {
-    //   console.log(this.route.params['id']);
-    // })
-
-    // this.route.queryParams.subscribe(
-    //   (queryParams) => {
-    //     console.log(queryParams['query']);
-    //   }
-    // );
 
     // this.subscription = this.movieService.getOrderBy().subscribe(
     //   (sub) => {

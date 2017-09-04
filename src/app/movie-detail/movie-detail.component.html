@@ -30,7 +30,6 @@
               <p>{{movie.Awards}}</p>
               <h5>Ratings:</h5>
               <p *ngFor="let rating of movie.Ratings">{{rating.Source}}: {{rating.Value}}</p>
-              <p *ngIf="metascore !== 'N/A'">{{movie.Metascore}}</p>
             </div>
           </div>
           <hr>

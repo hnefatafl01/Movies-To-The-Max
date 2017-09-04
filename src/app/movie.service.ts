@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
@@ -8,14 +8,16 @@ import 'rxjs/Rx';
 export class MovieService {
   private filter = new Subject<any>();
   private searchSubject = new Subject<any>();
+  private API_URL = 'https://mtmserver.herokuapp.com';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
 
   searchService(term: string) {
-    return this.http.post(`http://localhost:3000/search`, { search: term } )
+    return this.http.post(`${this.API_URL}/search`, { search: term }, { headers: this.headers })
       .map(
         (response: Response) => {
-          this.searchSubject.next({ movies: response.json().Search })
+          this.searchSubject.next({ movies: response.json().Search });
           return response.json().Search;
         }
       )
@@ -27,10 +29,9 @@ export class MovieService {
   }
 
   getMovieData(id: string) {
-    return this.http.get(`http://localhost:3000/search/${id}`)
-      .map((r) => {
-        console.log(r);
-        return r.json();
+    return this.http.get(`${this.API_URL}/search/${id}`)
+      .map((res) => {
+        return res.json();
       })
       .catch(
         (error) => {
