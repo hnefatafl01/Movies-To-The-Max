@@ -9,7 +9,7 @@ export class MovieService {
   private filter = new Subject<any>();
   private searchSubject = new Subject<any>();
   private API_URL = 'https://mtmserver.herokuapp.com';
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private headers = new Headers({'Content-Type': 'text/html; charset=UTF-8'});
 
   constructor(private http: Http) {}
 
