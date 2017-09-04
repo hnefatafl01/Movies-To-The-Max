@@ -27,15 +27,16 @@ export class MovieService {
   }
 
   getMovieData(id: string) {
-    // return this.http.get()
-      // .map((r) => {
-      //   return r.json();
-      // })
-      // .catch(
-      //   (error) => {
-      //     return Observable.throw(error);
-      //   }
-      // );
+    return this.http.get(`http://localhost:3000/search/${id}`)
+      .map((r) => {
+        console.log(r);
+        return r.json();
+      })
+      .catch(
+        (error) => {
+          return Observable.throw(error);
+        }
+      );
   }
 
   retrieveMovies(): Observable<any> {

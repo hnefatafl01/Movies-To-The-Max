@@ -22,10 +22,10 @@ export class MovieDetailComponent implements OnInit {
     this.movie = '';
     this.movieId = this.route.snapshot.params['id'];
     this.movieService.getMovieData(this.movieId)
-      // .subscribe((movie) => {
-      //   this.movie = movie;
-      //   this.metascore = this.movie.Metascore;
-      // });
+      .subscribe((movie) => {
+        this.movie = movie;
+        this.metascore = this.movie.Metascore;
+      });
   }
 
 }
