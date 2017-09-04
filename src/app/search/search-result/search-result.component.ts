@@ -28,32 +28,28 @@ export class SearchResultComponent implements OnChanges, OnInit, OnDestroy {
   ) { }
 
   ngOnChanges() {
-    this.movieService.retrieveMovies().subscribe(
-      (movies) => {
-        this.movies = movies;
-        console.log(movies);
-      }
-    );
+
   }
 
   ngOnInit() {
+    this.moviesSubscription = this.movieService.retrieveMovies()
+      .subscribe(
+        (arr) => {
+          this.movies = arr.movies;
+          console.log('result', this.movies);
+        }
+      );
 
+    // this.route.params.subscribe(() => {
+    //   console.log(this.route.params['id']);
+    // })
 
-    // this.type = '';
     // this.route.queryParams.subscribe(
     //   (queryParams) => {
     //     console.log(queryParams['query']);
-    //     this.movieService.searchService(queryParams['query'])
-    //     .subscribe(
-    //       (movieSearchData: any) => {
-    //         this.movies = movieSearchData.Search;
-    //         this.searchError = movieSearchData.Error;
-    //         this.searchResponse = movieSearchData.Response;
-    //         return this.movies;
-    //       }
-    //     );
     //   }
     // );
+
     // this.subscription = this.movieService.getOrderBy().subscribe(
     //   (sub) => {
     //     this.type = sub;
@@ -64,6 +60,7 @@ export class SearchResultComponent implements OnChanges, OnInit, OnDestroy {
 
   ngOnDestroy() {
     // this.subscription.unsubscribe();
+    this.moviesSubscription.unsubscribe();
   }
 
   findType(filter, $event) {

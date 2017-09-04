@@ -6,28 +6,24 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class MovieService {
-
   private filter = new Subject<any>();
-  private search = new Subject<any>();
+  private searchSubject = new Subject<any>();
 
   constructor(private http: Http) {}
 
-  searchService(movieName: string): Observable<any[]> {
-    console.log(movieName);
-    return this.http.post(`http://localhost:3000/search`, movieName)
+  searchService(term: string) {
+    return this.http.post(`http://localhost:3000/search`, { search: term } )
       .map(
         (response: Response) => {
-          console.log(response.json().Search);
+          this.searchSubject.next({ movies: response.json().Search })
           return response.json().Search;
-          // const movies = response.json().Search;
-          // this.search.next({ 'movies': movies });
+        }
+      )
+      .catch(
+        (error) => {
+          return Observable.throw(error);
         }
       );
-      // .catch(
-      //   (error) => {
-      //     return Observable.throw(error);
-      //   }
-      // );
   }
 
   getMovieData(id: string) {
@@ -42,9 +38,10 @@ export class MovieService {
       // );
   }
 
-  retrieveMovies() {
-    return this.search.asObservable();
+  retrieveMovies(): Observable<any> {
+    return this.searchSubject.asObservable();
   }
+
 
   setOrderBy(filter: string) {
     return this.filter.next({ filter: filter });

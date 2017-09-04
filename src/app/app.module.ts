@@ -23,11 +23,11 @@ const appRoutes: Routes = [
   //   redirectTo: '/search'
   // },
   {
-    path: '',
+    path: 'search',
     component: SearchComponent,
     children: [
-      { path: '', component: SearchStartComponent },
-      { path: 'search', component: SearchResultComponent },
+      // { path: '', component: SearchStartComponent },
+      { path: '', component: SearchResultComponent },
       { path: 'search/:id', component: MovieDetailComponent }
     ]
   },
