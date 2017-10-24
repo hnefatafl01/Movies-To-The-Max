@@ -17,7 +17,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { SortPipe } from './shared/sort.pipe';
 
 const appRoutes: Routes = [
-  // { path: '', component: SearchStartComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/search' },
   {
     path: 'search',
     component: SearchComponent,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -12,7 +12,7 @@ import { MovieService } from '../movie.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnChanges {
   movie = { name: '' };
   movies;
 
@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
     private movieService: MovieService
   ) { }
 
-
+  ngOnChanges() { }
 
   ngOnInit() { }
 
@@ -31,6 +31,7 @@ export class SearchComponent implements OnInit {
     this.movieService.searchService(search)
       .subscribe((res) => {
         this.movies = res;
+        console.log(res);
       });
     form.reset();
   }
