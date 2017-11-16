@@ -17,11 +17,10 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { SortPipe } from './shared/sort.pipe';
 
 const appRoutes: Routes = [
-
-  // { path: '', pathMatch: 'full', redirectTo: '/search' },
-  { path: 'search', component: SearchComponent, pathMatch: 'full' },
-  { path: 'results', component: SearchResultComponent },
   { path: 'result/:id', component: MovieDetailComponent },
+  { path: 'results', component: SearchResultComponent },
+  { path: 'search', component: SearchComponent, pathMatch: 'full' },
+  { path: '', pathMatch: 'full', redirectTo: '/search' },
   // { path: '**', component: SearchComponent }
 
 ];

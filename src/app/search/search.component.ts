@@ -31,7 +31,6 @@ export class SearchComponent implements OnInit, OnChanges {
     this.movieService.searchService(search)
       .subscribe((res) => {
         this.movies = res;
-        console.log(res);
       });
     form.reset();
     this.router.navigate(['/results']);

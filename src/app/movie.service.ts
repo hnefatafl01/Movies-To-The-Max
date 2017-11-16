@@ -19,7 +19,6 @@ export class MovieService {
       .map(
         (response: Response) => {
           this.searchSubject.next({ movies: response.json().Search });
-          // console.log(response);
           return response.json().Search;
         }
       )
