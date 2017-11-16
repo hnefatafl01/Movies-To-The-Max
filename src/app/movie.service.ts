@@ -9,6 +9,7 @@ export class MovieService {
   private filter = new Subject<any>();
   private searchSubject = new Subject<any>();
   private API_URL = 'https://mtmserver.herokuapp.com';
+  // private API_URL = 'http://localhost:3000';
   private headers = new Headers({'Accept' : '*/*', 'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
@@ -18,7 +19,7 @@ export class MovieService {
       .map(
         (response: Response) => {
           this.searchSubject.next({ movies: response.json().Search });
-          console.log(response);
+          // console.log(response);
           return response.json().Search;
         }
       )
@@ -30,7 +31,7 @@ export class MovieService {
   }
 
   getMovieData(id: string) {
-    return this.http.get(`${this.API_URL}/search/${id}`)
+    return this.http.get(`${this.API_URL}/result/${id}`)
       .map((res) => {
         return res.json();
       })

@@ -34,6 +34,7 @@ export class SearchComponent implements OnInit, OnChanges {
         console.log(res);
       });
     form.reset();
+    this.router.navigate(['/results']);
   }
 
 }

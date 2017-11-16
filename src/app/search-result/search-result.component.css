@@ -11,3 +11,9 @@
   height: 16vh;
    max-height: 200px;
 }
+
+#newSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

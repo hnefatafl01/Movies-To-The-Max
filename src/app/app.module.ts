@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-import { SearchResultComponent } from './search/search-result/search-result.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 import { MovieService } from './movie.service';
 import { AlignMoviesPipe } from './align-movies.pipe';
@@ -17,16 +17,12 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { SortPipe } from './shared/sort.pipe';
 
 const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/search' },
-  {
-    path: 'search',
-    component: SearchComponent,
-    children: [
-      { path: '', component: SearchResultComponent },
-      { path: ':id', component: MovieDetailComponent }
-    ]
-  },
-  { path: '**', component: SearchComponent }
+
+  // { path: '', pathMatch: 'full', redirectTo: '/search' },
+  { path: 'search', component: SearchComponent, pathMatch: 'full' },
+  { path: 'results', component: SearchResultComponent },
+  { path: 'result/:id', component: MovieDetailComponent },
+  // { path: '**', component: SearchComponent }
 
 ];
 

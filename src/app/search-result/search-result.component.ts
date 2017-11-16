@@ -2,7 +2,7 @@ import { Component, OnChanges, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { MovieService } from '../../movie.service';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-search-result',
@@ -54,7 +54,7 @@ export class SearchResultComponent implements OnChanges, OnInit, OnDestroy {
 
   findType(filter, $event) {
     $event.preventDefault();
-    console.log(filter);
+    // console.log(filter);
     this.movieService.setOrderBy(filter);
     return false;
   }
@@ -62,7 +62,7 @@ export class SearchResultComponent implements OnChanges, OnInit, OnDestroy {
   onSelectMovie(movie) {
     this.selectedMovie = movie;
     this.movieId = this.selectedMovie.imdbID;
-    this.router.navigate(['/search', this.movieId]);
+    this.router.navigate(['result', this.movieId]);
   }
 
 }
